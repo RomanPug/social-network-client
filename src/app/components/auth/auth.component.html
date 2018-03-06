@@ -1,0 +1,55 @@
+<header id="header-inverse">
+  <nav class="navbar navbar-default menu">
+    <div class="container">
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand"><img src="assets/images/logo.png" alt="logo"/></a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div id="lp-register">
+  <div class="container wrapper">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="intro-texts">
+          <h2 class="text-white">Найдите новых друзей!</h2>
+          <p>Friend Finder это социальная сеть для общения между людьми по всему миру. Вы сможете общатся, обмениваться
+            фото и видео и быть вкурсе о интересных людях. <br/>
+        </div>
+      </div>
+      <div class="col-sm-6 col-sm-offset-1">
+        <div class="reg-form-container">
+
+          <!-- Register/Login Tabs-->
+          <div class="reg-options">
+            <ul class="nav nav-tabs">
+              <li [class.active]="!trigger"><a data-toggle="tab" (click)="triggerLoginFunc(true)" class="pointer">Регистрация</a></li>
+              <li [class.active]="trigger"><a data-toggle="tab" (click)="triggerLoginFunc(false)" class="pointer">Зайти</a></li>
+            </ul><!--Tabs End-->
+          </div>
+          <app-login *ngIf="trigger === true"></app-login>
+          <div class="tab-content">
+            <app-register *ngIf="trigger === false"></app-register>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-6">
+
+      <!--Social Icons-->
+      <ul class="list-inline social-icons">
+        <li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
+        <li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
+        <li><a href="#"><i class="icon ion-social-googleplus"></i></a></li>
+        <li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
+        <li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
