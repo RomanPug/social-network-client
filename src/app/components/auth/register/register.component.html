@@ -4,31 +4,59 @@
   <p class="text-muted">Присоединяйтесь сегодня!</p>
 
   <!--Register Form-->
-  <form name="registration_form" id='registration_form' class="form-inline">
+  <form id='registration_form' class="form-inline" [formGroup]="form">
     <div class="row">
       <div class="form-group col-xs-6">
         <label for="firstname" class="sr-only">Имя</label>
-        <input id="firstname" class="form-control input-group-lg" type="text" name="firstname" title="Введите имя"
-               placeholder="Имя"/>
+        <input
+          id="firstname"
+          class="form-control input-group-lg"
+          type="text"
+          name="firstname"
+          title="Введите имя"
+          placeholder="Имя"
+          formControlName="firstname"
+        />
       </div>
       <div class="form-group col-xs-6">
         <label for="lastname" class="sr-only">Фамилия</label>
-        <input id="lastname" class="form-control input-group-lg" type="text" name="lastname" title="Введите фамилию"
-               placeholder="Фамилия"/>
+        <input
+          id="lastname"
+          class="form-control input-group-lg"
+          type="text"
+          name="lastname"
+          title="Введите фамилию"
+          placeholder="Фамилия"
+          formControlName="lastname"
+        />
       </div>
     </div>
     <div class="row">
       <div class="form-group col-xs-12">
         <label for="email" class="sr-only">Email</label>
-        <input id="email" class="form-control input-group-lg" type="text" name="Email" title="Введите Email"
-               placeholder="Ваш Email"/>
+        <input
+          id="email"
+          class="form-control input-group-lg"
+          type="text"
+          name="email"
+          title="Введите Email"
+          placeholder="Ваш Email"
+          formControlName="email"
+        />
       </div>
     </div>
     <div class="row">
       <div class="form-group col-xs-12">
         <label for="password" class="sr-only">Пароль</label>
-        <input id="password" class="form-control input-group-lg" type="password" name="password" title="Введите пароль"
-               placeholder="Пароль"/>
+        <input
+          id="password"
+          class="form-control input-group-lg"
+          type="password"
+          name="password"
+          title="Введите пароль"
+          placeholder="Пароль"
+          formControlName="password"
+        />
       </div>
     </div>
     <div class="row">
@@ -131,5 +159,5 @@
     </div>
   </form><!--Register Now Form Ends-->
   <p><a href="#">Уже зарегестрированы?</a></p>
-  <button class="btn btn-primary">Зарегестрироваться сейчас</button>
+  <button type="submit" class="btn btn-primary" (click)="onSubmit()">Зарегестрироваться сейчас</button>
 </div>

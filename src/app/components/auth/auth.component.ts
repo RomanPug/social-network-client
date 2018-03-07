@@ -16,7 +16,6 @@ export class AuthComponent implements OnInit {
 
   triggerLoginFunc(arg) {
     this.trigger = arg === false ? true : false;
-    console.log(this.trigger);
   }
 
 }

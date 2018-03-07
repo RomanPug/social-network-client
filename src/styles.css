@@ -2,3 +2,14 @@
 .pointer {
   cursor: pointer;
 }
+.form-invalid {
+  border-color: red !important;
+  border-style: solid !important;
+  box-shadow: 0 0 5px red !important;
+}
+
+.form-valid {
+  border-color: green !important;
+  border-style: solid !important;
+  box-shadow: 0 0 5px green !important;
+}

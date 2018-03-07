@@ -4,20 +4,51 @@
   <p class="text-muted">Зайдите в свой аккаунт</p>
 
   <!--Login Form-->
-  <form name="Login_form" id='Login_form'>
+  <form
+    id='Login_form'
+    (ngSubmit)="onSubmit()"
+    [formGroup]="form"
+  >
     <div class="row">
       <div class="form-group col-xs-12">
         <label for="my-email" class="sr-only">Email</label>
-        <input id="my-email" class="form-control input-group-lg" type="text" name="Email" title="Введите Email" placeholder="Ваш Email"/>
+        <input
+          id="my-email"
+          class="form-control input-group-lg"
+          type="text"
+          name="email"
+          title="Введите Email"
+          placeholder="Ваш Email"
+          formControlName="email"
+          [class.form-invalid] = "form.get('email').invalid && form.get('email').touched"
+          [class.form-valid] = "form.get('email').valid && form.get('email').touched"
+        />
       </div>
     </div>
     <div class="row">
       <div class="form-group col-xs-12">
         <label for="my-password" class="sr-only">Пароль</label>
-        <input id="my-password" class="form-control input-group-lg" type="password" name="password" title="Введите пароль" placeholder="Пароль"/>
+        <input
+          id="my-password"
+          class="form-control input-group-lg"
+          type="password"
+          name="password"
+          title="Введите пароль"
+          placeholder="Пароль"
+          formControlName="password"
+          [class.form-invalid] = "form.get('password').invalid && form.get('password').touched"
+          [class.form-valid] = "form.get('password').valid && form.get('password').touched"
+        />
       </div>
     </div>
   </form><!--Login Form Ends-->
   <p><a href="#">Забыли пароль?</a></p>
-  <button class="btn btn-primary">Войти</button>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="form.invalid"
+    (click)="onSubmit()"
+  >
+    Войти
+  </button>
 </div>
