@@ -16,6 +16,8 @@
           title="Введите имя"
           placeholder="Имя"
           formControlName="firstname"
+          [class.form-invalid] = "form.get('firstname').invalid && form.get('firstname').touched"
+          [class.form-valid] = "form.get('firstname').valid && form.get('firstname').touched"
         />
       </div>
       <div class="form-group col-xs-6">
@@ -28,6 +30,8 @@
           title="Введите фамилию"
           placeholder="Фамилия"
           formControlName="lastname"
+          [class.form-invalid] = "form.get('lastname').invalid && form.get('lastname').touched"
+          [class.form-valid] = "form.get('lastname').valid && form.get('lastname').touched"
         />
       </div>
     </div>
@@ -42,6 +46,8 @@
           title="Введите Email"
           placeholder="Ваш Email"
           formControlName="email"
+          [class.form-invalid] = "form.get('email').invalid && form.get('email').touched"
+          [class.form-valid] = "form.get('email').valid && form.get('email').touched"
         />
       </div>
     </div>
@@ -56,80 +62,35 @@
           title="Введите пароль"
           placeholder="Пароль"
           formControlName="password"
+          [class.form-invalid] = "form.get('password').invalid && form.get('password').touched"
+          [class.form-valid] = "form.get('password').valid && form.get('password').touched"
         />
+        <p *ngIf="form.get('password').invalid && form.get('password').touched">
+          <span *ngIf="form.get('password').errors['lengthError']" style="color: red">Пароль не может быть меньне {{minLength}} и больше {{maxLength}} символов!</span>
+        </p>
       </div>
     </div>
     <div class="row">
       <p class="birth"><strong>Дата рождения</strong></p>
       <div class="form-group col-sm-3 col-xs-6">
-        <label for="month" class="sr-only"></label>
+        <label for="day" class="sr-only"></label>
         <select class="form-control" id="day">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-          <option>11</option>
-          <option>12</option>
-          <option>13</option>
-          <option>14</option>
-          <option>15</option>
-          <option>16</option>
-          <option>17</option>
-          <option>18</option>
-          <option>19</option>
-          <option>20</option>
-          <option>21</option>
-          <option>22</option>
-          <option>23</option>
-          <option>24</option>
-          <option>25</option>
-          <option>26</option>
-          <option>27</option>
-          <option>28</option>
-          <option>29</option>
-          <option>30</option>
-          <option>31</option>
+          <option value="day" disabled selected>День</option>
+          <option *ngFor="let day of days">{{ day }}</option>
         </select>
       </div>
-      <div class="form-group col-sm-3 col-xs-6">
+      <div class="form-group col-sm-4 col-xs-6">
         <label for="month" class="sr-only"></label>
-        <select class="form-control" id="month">
-          <option>Jan</option>
-          <option>Feb</option>
-          <option>Mar</option>
-          <option>Apr</option>
-          <option>May</option>
-          <option>Jun</option>
-          <option>Jul</option>
-          <option>Aug</option>
-          <option>Sep</option>
-          <option>Oct</option>
-          <option>Nov</option>
-          <option>Dec</option>
+        <select class="form-control" id="month" (change)="onChange($event)">
+          <option value="month" disabled selected>Месяц</option>
+          <option *ngFor="let date of dates" value="{{date.type}}">{{ date.name }}</option>
         </select>
       </div>
-      <div class="form-group col-sm-6 col-xs-12">
+      <div class="form-group col-sm-5 col-xs-12">
         <label for="year" class="sr-only"></label>
         <select class="form-control" id="year">
           <option value="year" disabled selected>Год</option>
-          <option>2000</option>
-          <option>2001</option>
-          <option>2002</option>
-          <option>2004</option>
-          <option>2005</option>
-          <option>2006</option>
-          <option>2007</option>
-          <option>2008</option>
-          <option>2009</option>
-          <option>2010</option>
-          <option>2011</option>
-          <option>2012</option>
+          <option *ngFor="let year of years">{{ year }}</option>
         </select>
       </div>
     </div>
@@ -159,5 +120,12 @@
     </div>
   </form><!--Register Now Form Ends-->
   <p><a href="#">Уже зарегестрированы?</a></p>
-  <button type="submit" class="btn btn-primary" (click)="onSubmit()">Зарегестрироваться сейчас</button>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    (click)="onSubmit()"
+    [disabled]="form.invalid"
+  >
+    Зарегестрироваться сейчас
+  </button>
 </div>

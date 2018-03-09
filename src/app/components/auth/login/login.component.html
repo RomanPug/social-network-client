@@ -39,6 +39,9 @@
           [class.form-invalid] = "form.get('password').invalid && form.get('password').touched"
           [class.form-valid] = "form.get('password').valid && form.get('password').touched"
         />
+        <p *ngIf="form.get('password').invalid && form.get('password').touched">
+          <span *ngIf="form.get('password').errors['lengthError']" style="color: red">Пароль не может быть меньне {{minLength}} и больше {{maxLength}} символов!</span>
+        </p>
       </div>
     </div>
   </form><!--Login Form Ends-->
