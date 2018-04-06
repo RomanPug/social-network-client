@@ -1,6 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthDaysAndMonth, AuthPasswordLength, AuthYears } from "../auth.config";
+import { UserService } from "../../../services/user.service";
+import { User } from "../user.model";
 
 @Component({
   selector: 'app-register',
@@ -17,9 +19,7 @@ export class RegisterComponent implements OnInit {
   days = [];
   selectedMonth: string = '';
 
-  @ViewChild('month') month: ElementRef;
-
-  constructor() { }
+  constructor(private _user: UserService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -27,16 +27,22 @@ export class RegisterComponent implements OnInit {
       lastname: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.email, Validators.required]),
       password: new FormControl('', [Validators.required, this.checkLength.bind(this)]),
+      day: new FormControl(''),
+      month: new FormControl(''),
+      year: new FormControl(''),
+      gender: new FormControl(''),
     });
     this.year();
+    this.defaultDays();
   }
 
   onSubmit() {
-    console.log(this.form);
+    let user = this.createUser();
+    this._user.registerUser(user);
   }
 
   checkLength(control: FormControl) {
-    if (control.value.length < this.minLength && control.value.length < this.maxLength) {
+    if (control.value.length <= this.minLength || control.value.length >= this.maxLength) {
       return {
         'lengthError': true
       };
@@ -68,5 +74,21 @@ export class RegisterComponent implements OnInit {
     for (let days = 1; days <= daysCount; days++) {
       this.days.push(days);
     }
+  }
+
+  defaultDays() {
+    if (this.selectedMonth === '') {
+      for (let days = 1; days <= 31; days++) {
+        this.days.push(days);
+      }
+    }
+  }
+
+  createUser() {
+
+    const {email, password, firstname, lastname, day, month, year, gender} = this.form.value;
+    const user = new User(email, password, firstname, lastname, day, month, year, gender);
+
+    return user;
   }
 }

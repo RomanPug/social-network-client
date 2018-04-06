@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthPasswordLength } from "../auth.config";
+import { UserService } from "../../../services/user.service";
+import { User } from "../user.model";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit{
   minLength = AuthPasswordLength.minLengthPassword;
   maxLength = AuthPasswordLength.maxLengthPassword;
 
-  constructor() { }
+  constructor(private _user: UserService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -23,15 +25,22 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit() {
-    console.log(this.form);
+    // let user = this.loginUser();
+    // this._user.loginUser(user).then();
   }
 
   checkLength(control: FormControl) {
-    if (control.value.length < this.minLength && control.value.length < this.maxLength) {
+    if (control.value.length <= this.minLength || control.value.length >= this.maxLength) {
       return {
         'lengthError': true
       };
     }
     return null;
   }
+
+  // loginUser() {
+  //
+  //   return user;
+  // }
+
 }

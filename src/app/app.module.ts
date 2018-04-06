@@ -7,6 +7,8 @@ import {HeaderModule} from "./components/header/header.module";
 import {FooterModule} from "./components/footer/footer.module";
 import {AuthModule} from "./components/auth/auth.module";
 import {AppRoutingModule} from "./app-routing.module";
+import { UserService } from "./services/user.service";
+import { HttpService } from "./services/http.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import {AppRoutingModule} from "./app-routing.module";
     AuthModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [UserService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

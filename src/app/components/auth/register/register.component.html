@@ -1,28 +1,29 @@
 <!--Registration-->
-<div class="tab-pane" id="register">
-  <h3>Зарегестрироваться сейчас!</h3>
-  <p class="text-muted">Присоединяйтесь сегодня!</p>
-
+<div id="register">
+  <h4>Зарегестрироваться сейчас!</h4>
   <!--Register Form-->
   <form id='registration_form' class="form-inline" [formGroup]="form">
     <div class="row">
       <div class="form-group col-xs-6">
-        <label for="firstname" class="sr-only">Имя</label>
-        <input
-          id="firstname"
-          class="form-control input-group-lg"
-          type="text"
-          name="firstname"
-          title="Введите имя"
-          placeholder="Имя"
-          formControlName="firstname"
-          [class.form-invalid] = "form.get('firstname').invalid && form.get('firstname').touched"
-          [class.form-valid] = "form.get('firstname').valid && form.get('firstname').touched"
-        />
+        <mat-form-field>
+          <input
+            matInput
+            id="firstname"
+            class="form-control input-group-lg"
+            type="text"
+            name="firstname"
+            title="Введите имя"
+            placeholder="Имя"
+            formControlName="firstname"
+            [class.form-invalid] = "form.get('firstname').invalid && form.get('firstname').touched"
+            [class.form-valid] = "form.get('firstname').valid && form.get('firstname').touched"
+          />
+        </mat-form-field>
       </div>
-      <div class="form-group col-xs-6">
-        <label for="lastname" class="sr-only">Фамилия</label>
+      <div class="form-group col-xs-6 padleft">
+        <mat-form-field>
         <input
+          matInput
           id="lastname"
           class="form-control input-group-lg"
           type="text"
@@ -33,14 +34,16 @@
           [class.form-invalid] = "form.get('lastname').invalid && form.get('lastname').touched"
           [class.form-valid] = "form.get('lastname').valid && form.get('lastname').touched"
         />
+        </mat-form-field>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-xs-12">
         <label for="email" class="sr-only">Email</label>
+        <mat-form-field class="widthmax">
         <input
+          matInput
           id="email"
-          class="form-control input-group-lg"
           type="text"
           name="email"
           title="Введите Email"
@@ -49,77 +52,80 @@
           [class.form-invalid] = "form.get('email').invalid && form.get('email').touched"
           [class.form-valid] = "form.get('email').valid && form.get('email').touched"
         />
+        </mat-form-field>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-xs-12">
-        <label for="password" class="sr-only">Пароль</label>
-        <input
-          id="password"
-          class="form-control input-group-lg"
-          type="password"
-          name="password"
-          title="Введите пароль"
-          placeholder="Пароль"
-          formControlName="password"
-          [class.form-invalid] = "form.get('password').invalid && form.get('password').touched"
-          [class.form-valid] = "form.get('password').valid && form.get('password').touched"
-        />
-        <p *ngIf="form.get('password').invalid && form.get('password').touched">
-          <span *ngIf="form.get('password').errors['lengthError']" style="color: red">Пароль не может быть меньне {{minLength}} и больше {{maxLength}} символов!</span>
-        </p>
+        <mat-form-field class="widthmax">
+          <input
+            matInput
+            id="password"
+            type="password"
+            name="password"
+            title="Введите пароль"
+            placeholder="Пароль"
+            formControlName="password"
+            [class.form-invalid] = "form.get('password').invalid && form.get('password').touched"
+            [class.form-valid] = "form.get('password').valid && form.get('password').touched"
+          />
+          <mat-error *ngIf="form.get('password').invalid && form.get('password').touched">
+            <mat-error *ngIf="form.get('password').errors['lengthError']" style="color: red">Пароль не может быть меньше {{minLength}} и больше {{maxLength}} символов!</mat-error>
+          </mat-error>
+        </mat-form-field>
+
       </div>
     </div>
     <div class="row">
       <p class="birth"><strong>Дата рождения</strong></p>
       <div class="form-group col-sm-3 col-xs-6">
         <label for="day" class="sr-only"></label>
-        <select class="form-control" id="day">
-          <option value="day" disabled selected>День</option>
-          <option *ngFor="let day of days">{{ day }}</option>
+        <select
+          class="form-control"
+          id="day"
+          formControlName="day"
+        >
+          <option value="" disabled selected>День</option>
+          <option *ngFor="let day of days" value="{{ day }}">{{ day }}</option>
         </select>
       </div>
       <div class="form-group col-sm-4 col-xs-6">
         <label for="month" class="sr-only"></label>
-        <select class="form-control" id="month" (change)="onChange($event)">
-          <option value="month" disabled selected>Месяц</option>
+        <select
+          class="form-control"
+          id="month"
+          (change)="onChange($event)"
+          formControlName="month"
+        >
+          <option value="" disabled selected>Месяц</option>
           <option *ngFor="let date of dates" value="{{date.type}}">{{ date.name }}</option>
         </select>
       </div>
       <div class="form-group col-sm-5 col-xs-12">
         <label for="year" class="sr-only"></label>
-        <select class="form-control" id="year">
-          <option value="year" disabled selected>Год</option>
-          <option *ngFor="let year of years">{{ year }}</option>
+        <select
+          class="form-control"
+          id="year"
+          formControlName="year"
+        >
+          <option value="" disabled selected>Год</option>
+          <option *ngFor="let year of years" [value]="year">{{ year }}</option>
         </select>
       </div>
-    </div>
-    <div class="form-group gender">
-      <label class="radio-inline">
-        <input type="radio" name="optradio" checked>Мужчина
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="optradio">Женщина
-      </label>
     </div>
     <div class="row">
-      <div class="form-group col-xs-6">
-        <label for="city" class="sr-only">Город</label>
-        <input id="city" class="form-control input-group-lg reg_name" type="text" name="city" title="Enter city"
-               placeholder="Ваш город"/>
-      </div>
-      <div class="form-group col-xs-6">
-        <label for="country" class="sr-only"></label>
-        <select class="form-control" id="country">
-          <option value="country" disabled selected>Страна</option>
-          <option value="AFG">Afghanistan</option>
-          <option value="ALA">land Islands</option>
-          <option value="ALB">Albania</option>
-        </select>
+      <p class="birth"><strong>Пол</strong></p>
+      <div class="form-group gender" style="margin-left: 20px;">
+        <label class="radio-inline">
+          <input type="radio" name="gender" value="man" formControlName="gender">Мужчина
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="gender" value="women" formControlName="gender">Женщина
+        </label>
       </div>
     </div>
+
   </form><!--Register Now Form Ends-->
-  <p><a href="#">Уже зарегестрированы?</a></p>
   <button
     type="submit"
     class="btn btn-primary"

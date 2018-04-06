@@ -1,0 +1,44 @@
+.wrapper {
+  width: 100%;
+  background: #edeef0;
+}
+
+.header {
+  position: relative;
+  z-index: 999;
+  min-height: 60px;
+  background-color: #6b0083;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.layout {
+  display: block;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.navbar-brand {
+  padding-top: 15px;
+}
+
+.pd {
+  padding-top: 30px;
+}
+
+.intro-texts{
+  color: #262626;
+  font-size: 14px;
+  transform: translateY(100px);
+}
+
+.intro-texts h1{
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.tab-pane {
+  margin-top: 20px;
+}

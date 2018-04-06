@@ -1,7 +1,6 @@
 <!--Login-->
-<div class="tab-pane active" id="login">
-  <h3>Логин</h3>
-  <p class="text-muted">Зайдите в свой аккаунт</p>
+<div id="login">
+  <h4 style="padding-bottom: 7px" class="text-muted">Зайдите в свой аккаунт</h4>
 
   <!--Login Form-->
   <form
@@ -11,26 +10,28 @@
   >
     <div class="row">
       <div class="form-group col-xs-12">
-        <label for="my-email" class="sr-only">Email</label>
-        <input
-          id="my-email"
-          class="form-control input-group-lg"
-          type="text"
-          name="email"
-          title="Введите Email"
-          placeholder="Ваш Email"
-          formControlName="email"
-          [class.form-invalid] = "form.get('email').invalid && form.get('email').touched"
-          [class.form-valid] = "form.get('email').valid && form.get('email').touched"
-        />
+        <mat-form-field class="widthmax">
+          <input
+            matInput
+            id="my-email"
+            class="form-group"
+            type="text"
+            name="email"
+            title="Введите Email"
+            placeholder="Ваш Email"
+            formControlName="email"
+            [class.form-invalid] = "form.get('email').invalid && form.get('email').touched"
+            [class.form-valid] = "form.get('email').valid && form.get('email').touched"
+          />
+        </mat-form-field>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-xs-12">
-        <label for="my-password" class="sr-only">Пароль</label>
+        <mat-form-field class="widthmax">
         <input
+          matInput
           id="my-password"
-          class="form-control input-group-lg"
           type="password"
           name="password"
           title="Введите пароль"
@@ -39,9 +40,10 @@
           [class.form-invalid] = "form.get('password').invalid && form.get('password').touched"
           [class.form-valid] = "form.get('password').valid && form.get('password').touched"
         />
-        <p *ngIf="form.get('password').invalid && form.get('password').touched">
-          <span *ngIf="form.get('password').errors['lengthError']" style="color: red">Пароль не может быть меньне {{minLength}} и больше {{maxLength}} символов!</span>
-        </p>
+        <mat-error *ngIf="form.get('password').invalid && form.get('password').touched">
+          <mat-error *ngIf="form.get('password').errors['lengthError']" style="color: red">Пароль не может быть меньше {{minLength}} и больше {{maxLength}} символов!</mat-error>
+        </mat-error>
+        </mat-form-field>
       </div>
     </div>
   </form><!--Login Form Ends-->
