@@ -9,6 +9,7 @@ import {AuthModule} from "./components/auth/auth.module";
 import {AppRoutingModule} from "./app-routing.module";
 import { UserService } from "./services/user.service";
 import { HttpService } from "./services/http.service";
+import { AppCommonModule } from "./components/common/app-common.module";
 
 @NgModule({
   declarations: [
@@ -20,9 +21,10 @@ import { HttpService } from "./services/http.service";
     HeaderModule,
     FooterModule,
     AuthModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AppCommonModule
   ],
-  providers: [UserService, HttpService],
+  providers: [UserService, HttpService, AppCommonModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

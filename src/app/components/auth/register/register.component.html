@@ -78,44 +78,45 @@
     </div>
     <div class="row">
       <p class="birth"><strong>Дата рождения</strong></p>
-      <div class="form-group col-sm-3 col-xs-6">
-        <label for="day" class="sr-only"></label>
-        <select
-          class="form-control"
-          id="day"
-          formControlName="day"
-        >
-          <option value="" disabled selected>День</option>
-          <option *ngFor="let day of days" value="{{ day }}">{{ day }}</option>
-        </select>
-      </div>
-      <div class="form-group col-sm-4 col-xs-6">
-        <label for="month" class="sr-only"></label>
-        <select
-          class="form-control"
-          id="month"
-          (change)="onChange($event)"
-          formControlName="month"
-        >
-          <option value="" disabled selected>Месяц</option>
-          <option *ngFor="let date of dates" value="{{date.type}}">{{ date.name }}</option>
-        </select>
-      </div>
-      <div class="form-group col-sm-5 col-xs-12">
-        <label for="year" class="sr-only"></label>
-        <select
-          class="form-control"
-          id="year"
-          formControlName="year"
-        >
-          <option value="" disabled selected>Год</option>
-          <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-        </select>
-      </div>
-    </div>
+      <!--<div class="form-group col-sm-3 col-xs-6">-->
+        <!--<label for="day" class="sr-only"></label>-->
+        <!--<select-->
+          <!--class="form-control"-->
+          <!--id="day"-->
+          <!--formControlName="day"-->
+        <!--&gt;-->
+          <!--<option value="" disabled selected>День</option>-->
+          <!--<option *ngFor="let day of days" value="{{ day }}">{{ day }}</option>-->
+        <!--</select>-->
+      <!--</div>-->
+      <!--<div class="form-group col-sm-4 col-xs-6">-->
+        <!--<label for="month" class="sr-only"></label>-->
+        <!--<select-->
+          <!--class="form-control"-->
+          <!--id="month"-->
+          <!--(change)="onChange($event)"-->
+          <!--formControlName="month"-->
+        <!--&gt;-->
+          <!--<option value="" disabled selected>Месяц</option>-->
+          <!--<option *ngFor="let date of dates" value="{{date.type}}">{{ date.name }}</option>-->
+        <!--</select>-->
+      <!--</div>-->
+      <!--<div class="form-group col-sm-5 col-xs-12">-->
+        <!--<label for="year" class="sr-only"></label>-->
+        <!--<select-->
+          <!--class="form-control"-->
+          <!--id="year"-->
+          <!--formControlName="year"-->
+        <!--&gt;-->
+          <!--<option value="" disabled selected>Год</option>-->
+          <!--<option *ngFor="let year of years" [value]="year">{{ year }}</option>-->
+        <!--</select>-->
+      <!--</div>-->
+      <app-custom-date-picker label="Выберите дату" [(ngModel)]="chosenDate" formControlName="day_month"></app-custom-date-picker>
+      <app-custom-date-picker mode=true label="Выберите год" [(ngModel)]="chosenYearDate" [min]="1950" [max]="2005" formControlName="year"></app-custom-date-picker>
     <div class="row">
       <p class="birth"><strong>Пол</strong></p>
-      <div class="form-group gender" style="margin-left: 20px;">
+      <div class="form-group gender">
         <label class="radio-inline">
           <input type="radio" name="gender" value="man" formControlName="gender">Мужчина
         </label>
@@ -124,11 +125,13 @@
         </label>
       </div>
     </div>
+    </div>
 
   </form><!--Register Now Form Ends-->
   <button
     type="submit"
-    class="btn btn-primary"
+    mat-raised-button
+    color="primary"
     (click)="onSubmit()"
     [disabled]="form.invalid"
   >

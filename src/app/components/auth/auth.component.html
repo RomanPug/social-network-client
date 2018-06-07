@@ -1,92 +1,35 @@
-<!--<header id="header-inverse">-->
-  <!--<nav class="navbar navbar-default menu">-->
-    <!--<div class="container">-->
-
-      <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
-      <!--<div class="navbar-header">-->
-        <!--<a class="navbar-brand"><img src="assets/images/logo.png" alt="logo"/></a>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</nav>-->
-<!--</header>-->
-
-<!--<div id="lp-register">-->
-  <!--<div class="container wrapper">-->
-    <!--<div class="row">-->
-      <!--<div class="col-sm-5">-->
-        <!--<div class="intro-texts">-->
-          <!--<h2 class="text-white">Найдите новых друзей!</h2>-->
-          <!--<p>Friend Finder это социальная сеть для общения между людьми по всему миру. Вы сможете общатся, обмениваться-->
-            <!--фото и видео и быть вкурсе о интересных людях. <br/>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="col-sm-6 col-sm-offset-1">-->
-        <!--<div class="reg-form-container">-->
-
-          <!--&lt;!&ndash; Register/Login Tabs&ndash;&gt;-->
-          <!--<div class="reg-options">-->
-            <!--<ul class="nav nav-tabs">-->
-              <!--<li [class.active]="!trigger"><a data-toggle="tab" (click)="triggerLoginFunc(true)" class="pointer">Регистрация</a></li>-->
-              <!--<li [class.active]="trigger"><a data-toggle="tab" (click)="triggerLoginFunc(false)" class="pointer">Зайти</a></li>-->
-            <!--</ul>&lt;!&ndash;Tabs End&ndash;&gt;-->
-          <!--</div>-->
-          <!--<app-login *ngIf="trigger === true"></app-login>-->
-          <!--<div class="tab-content">-->
-            <!--<app-register *ngIf="trigger === false"></app-register>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div class="row">-->
-    <!--<div class="col-sm-6 col-sm-offset-6">-->
-
-      <!--&lt;!&ndash;Social Icons&ndash;&gt;-->
-      <!--<ul class="list-inline social-icons">-->
-        <!--<li><a href="#"><i class="icon ion-social-facebook"></i></a></li>-->
-        <!--<li><a href="#"><i class="icon ion-social-twitter"></i></a></li>-->
-        <!--<li><a href="#"><i class="icon ion-social-googleplus"></i></a></li>-->
-        <!--<li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>-->
-        <!--<li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>-->
-      <!--</ul>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
 <div class="wrapper">
   <header class="header">
-    <div class="layout">
+    <div class="layout layout-header">
       <div class="navbar-brand"><img src="assets/images/logo.png" alt="logo"/></div>
     </div>
   </header>
-
-  <main class="layout">
-    <div class="row pd">
-        <div class="col-md-8">
-          <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-              <div class="intro-texts">
-                <h2 class="text-white">Найдите новых друзей!</h2>
-                <p>Friend Finder это социальная сеть для общения между людьми по всему миру. Вы сможете общатся, обмениваться
-                  фото и видео и быть вкурсе о интересных людях. <br/>
-              </div>
-            </div>
-            <div class="col-sm-3"></div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <mat-card>
-            <mat-card-content>
-              <app-login></app-login>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card class="tab-pane">
-            <mat-card-content>
-              <app-register></app-register>
-            </mat-card-content>
-          </mat-card>
-        </div>
-    </div>
+  <main class="main layout layout-big ">
+    <aside class="authorization">
+      <div class="login">
+        <mat-card>
+          <mat-card-content>
+            <app-login></app-login>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="registration">
+        <mat-card class="tab-pane">
+          <mat-card-content>
+            <app-register></app-register>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </aside>
+    <section class="content">
+      <h2 class="text-white">Найдите новых друзей!</h2>
+      <p>Friend Finder это социальная сеть для общения между людьми по всему миру. Вы сможете общатся,
+        обмениваться
+        фото и видео и быть вкурсе о интересных людях. <br/>
+    </section>
   </main>
+  <footer class="footer">
+    <div class="footer-text layout">Footer</div>
+  </footer>
+
 </div>
