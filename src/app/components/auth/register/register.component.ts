@@ -1,8 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthDaysAndMonth, AuthPasswordLength, AuthYears } from "../auth.config";
 import { UserService } from "../../../services/user.service";
 import { User } from "../user.model";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-register',
@@ -14,10 +15,6 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   minLength = AuthPasswordLength.minLengthPassword;
   maxLength = AuthPasswordLength.maxLengthPassword;
-  // dates = AuthDaysAndMonth;
-  // years = [];
-  // days = [];
-  // selectedMonth: string = '';
   chosenDate: Date;
   chosenYearDate: Date;
 
@@ -33,8 +30,6 @@ export class RegisterComponent implements OnInit {
       year: new FormControl(''),
       gender: new FormControl(''),
     });
-    // this.year();
-    // this.defaultDays();
   }
 
   onSubmit() {

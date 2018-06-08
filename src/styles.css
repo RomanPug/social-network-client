@@ -52,8 +52,7 @@ html, body {
 }
 
 .wrapper {
-  /*display: flex;*/
-  /*flex-direction: column;*/
+  background-color: #FCFBFB;
   height: 100%;
 }
 
@@ -102,7 +101,7 @@ html, body {
   width: calc(100% - 420px);
 }
 .main {
-  min-height: 85.2%;
+  min-height: 85.5%;
 }
 
 .main:after {
@@ -113,12 +112,6 @@ html, body {
   background-color: #AE7F7F;
   padding: 20px 0;
 }
-/*.footer {*/
-  /*background-color: #AE7F7F;*/
-  /*flex-grow: 0;*/
-  /*padding: 20px 0;*/
-  /*display: block;*/
-/*}*/
 
 .footer-text {
   font-size: 20px;
@@ -130,4 +123,25 @@ html, body {
 }
 .mat-calendar-arrow {
   display: none!important;
+}
+
+.link {
+  text-decoration: none;
+  color: #3e77aa;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.link:hover {
+  color: #fd8e9a;
+  text-decoration: underline;
+}
+
+.register_name {
+  display: flex;
+  flex-direction: row;
+}
+
+.name {
+  padding-right: 13px;
 }

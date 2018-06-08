@@ -5,6 +5,7 @@ import { MomentDateAdapter } from '@angular/material-moment-adapter';
 
 import * as _moment from 'moment';
 import { Moment } from 'moment';
+import {Subject} from "rxjs/Subject";
 const moment = _moment;
 
 export const YEAR_MODE_FORMATS = {
@@ -35,7 +36,6 @@ export const YEAR_MODE_FORMATS = {
   ],
 })
 export class YearPickerComponent implements ControlValueAccessor {
-  /** Component label */
   @Input() label = '';
 
   _max: Moment;
@@ -68,7 +68,6 @@ export class YearPickerComponent implements ControlValueAccessor {
 
   // Function to call when the date changes.
   onChange = (year: Date) => {  };
-
   // Function to call when the input is touched (when a star is clicked).
   onTouched = () => { };
 

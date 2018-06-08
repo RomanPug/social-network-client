@@ -25,8 +25,6 @@ export class CustomDatePickerComponent implements ControlValueAccessor, AfterVie
   @Input() min: any;
   @Input() touchUi = false;
 
-  public test = true;
-
   _yearPickerCtrl: FormControl = new FormControl();
   _regularPickerCtrl: FormControl = new FormControl();
 
