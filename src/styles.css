@@ -145,3 +145,31 @@ html, body {
 .name {
   padding-right: 13px;
 }
+
+.birth {
+  margin-bottom: 5px;
+}
+
+.gender .gender-title {
+  margin-bottom: 5px;
+}
+
+.gender .gender-radio {
+  margin-bottom: 7px;
+}
+
+.gender-button {
+  margin-right: 25px;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #fc40ff;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #fc40ff;
+}
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(255, 64, 240, 0.26);
+}

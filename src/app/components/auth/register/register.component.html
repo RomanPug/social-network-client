@@ -80,16 +80,13 @@
       <p class="birth"><strong>Дата рождения</strong></p>
       <app-custom-date-picker label="Выберите дату" [(ngModel)]="chosenDate" formControlName="day_month"></app-custom-date-picker>
       <app-custom-date-picker tabindex="-1" mode="YEAR" label="Выберите год" [(ngModel)]="chosenYearDate" [min]="1950" [max]="2005" formControlName="year"></app-custom-date-picker>
-      <div style="font-size: 10px">Год: {{chosenYearDate}}</div>
-    <div class="row">
-      <p class="birth"><strong>Пол</strong></p>
-      <div class="form-group gender">
-        <label class="radio-inline">
-          <input type="radio" name="gender" value="man" formControlName="gender">Мужчина
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="gender" value="women" formControlName="gender">Женщина
-        </label>
+    <div class="gender">
+      <p class="gender-title"><strong>Пол</strong></p>
+      <div class="gender-radio">
+        <mat-radio-group formControlName="gender">
+          <mat-radio-button value="man" class="gender-button">Мужской</mat-radio-button>
+          <mat-radio-button value="woman">Женский</mat-radio-button>
+        </mat-radio-group>
       </div>
     </div>
     </div>

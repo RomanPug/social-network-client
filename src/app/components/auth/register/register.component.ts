@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     // let user = this.createUser();
     // this._user.registerUser(user);
 
-    console.log(this.chosenDate);
+    console.log(this.form);
     console.log(this.chosenYearDate);
     // console.log(this.chosenDate.getMonth() + 1, this.chosenDate.getDate(), this.chosenDate);
   }
