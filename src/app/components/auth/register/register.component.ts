@@ -33,11 +33,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    // let user = this.createUser();
-    // this._user.registerUser(user);
+    let user = this.createUser();
+    this._user.registerUser(user);
 
-    console.log(this.form);
-    console.log(this.chosenYearDate);
+    // console.log(this.form);
+    // console.log(this.chosenYearDate);
     // console.log(this.chosenDate.getMonth() + 1, this.chosenDate.getDate(), this.chosenDate);
   }
 
