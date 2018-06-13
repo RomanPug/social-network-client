@@ -34,11 +34,9 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     let user = this.createUser();
-    this._user.registerUser(user);
+    this._user.registerUser(user).then((response) => {
 
-    // console.log(this.form);
-    // console.log(this.chosenYearDate);
-    // console.log(this.chosenDate.getMonth() + 1, this.chosenDate.getDate(), this.chosenDate);
+    });
   }
 
   checkLength(control: FormControl) {
@@ -50,44 +48,10 @@ export class RegisterComponent implements OnInit {
     return null;
   }
 
-  // year () {
-  //   for (let year = AuthYears.minYear; year <= AuthYears.maxYear; year++) {
-  //     this.years.push(year);
-  //   }
-  // }
-
-  // onChange(event: Event) {
-  //   if (event !== undefined) {
-  //     this.selectedMonth = event.target['value'];
-  //   }
-  //
-  //   let daysCount: number;
-  //
-  //   AuthDaysAndMonth.forEach(value => {
-  //     if (value.type === this.selectedMonth) {
-  //       daysCount = value.days;
-  //     }
-  //   });
-  //
-  //   this.days = [];
-  //
-  //   for (let days = 1; days <= daysCount; days++) {
-  //     this.days.push(days);
-  //   }
-  // }
-  //
-  // defaultDays() {
-  //   if (this.selectedMonth === '') {
-  //     for (let days = 1; days <= 31; days++) {
-  //       this.days.push(days);
-  //     }
-  //   }
-  // }
-
   createUser() {
 
-    const {email, password, firstname, lastname, day, month, year, gender} = this.form.value;
-    const user = new User(email, password, firstname, lastname, day, month, year, gender);
+    const {email, password, firstname, lastname, day_month, year, gender} = this.form.value;
+    const user = new User(email, password, firstname, lastname, day_month, year, gender);
 
     return user;
   }

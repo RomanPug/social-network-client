@@ -6,20 +6,20 @@ import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class UserService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpService) {}
 
   registerUrl = BaseConfig.registerUrl;
   loginUrl = BaseConfig.loginUrl;
 
   registerUser(user: User): Promise<any> {
-    return this._http.post(this.registerUrl, user).toPromise()
+    return this._http.post(this.registerUrl, user)
       .then((response) => {
-        console.log(response);
+          return response;
       });
   }
 
   loginUser(user: User): Promise<any> {
-    return this._http.post(this.loginUrl, user).toPromise()
+    return this._http.post(this.loginUrl, user)
       .then((response) => {
         console.log(response);
       });

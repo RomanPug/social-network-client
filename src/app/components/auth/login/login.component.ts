@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit() {
-    // let user = this.loginUser();
-    // this._user.loginUser(user).then();
+    let user = this.loginUser();
+    this._user.loginUser(user);
   }
 
   checkLength(control: FormControl) {
@@ -38,9 +38,12 @@ export class LoginComponent implements OnInit{
     return null;
   }
 
-  // loginUser() {
-  //
-  //   return user;
-  // }
+  loginUser() {
+
+      const {email, password} = this.form.value;
+      const user = new User(email, password);
+
+      return user;
+  }
 
 }
