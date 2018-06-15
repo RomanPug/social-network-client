@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable()
 export class HttpService {
@@ -7,7 +7,9 @@ export class HttpService {
   constructor(private _http: HttpClient) {}
 
   post(url: string, data: any): Promise<any> {
-    return this._http.post(url, data).toPromise()
+     let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+
+      return this._http.post(url, data, { headers: headers }).toPromise()
       .then((response: Response) => {
         return response;
       });

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { User } from "../components/auth/user.model";
 import { BaseConfig } from "../configs/base.config";
 import { HttpService } from "./http.service";
-import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class UserService {
