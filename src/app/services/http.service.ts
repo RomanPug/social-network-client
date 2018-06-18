@@ -7,9 +7,8 @@ export class HttpService {
   constructor(private _http: HttpClient) {}
 
   post(url: string, data: any): Promise<any> {
-     let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
 
-      return this._http.post(url, data, { headers: headers }).toPromise()
+      return this._http.post(url, data).toPromise()
       .then((response: Response) => {
         return response;
       });
