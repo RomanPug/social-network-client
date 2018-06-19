@@ -8,11 +8,9 @@ export class HttpService {
 
   post(url: string, data: any): Promise<any> {
 
-    let header = new HttpHeaders({ 'Authorization': 'Bearer' + '2emYOBwPhmDM8D_c2Gcx' });
-      return this._http.post(url, data, {headers: header}).toPromise()
+      return this._http.post(url, data).toPromise()
       .then((response: Response) => {
-        // return response;
-        console.log(response);
+          return response;
       });
   }
 
