@@ -5,6 +5,7 @@ import { UserService } from "../../../services/user.service";
 import { User } from "../user.model";
 import {HttpService} from "../../../services/http.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,9 @@ export class LoginComponent implements OnInit{
   minLength = AuthPasswordLength.minLengthPassword;
   maxLength = AuthPasswordLength.maxLengthPassword;
 
-  constructor(private _user: UserService, private http: HttpService, private _router: Router) { }
+    message: any;
+
+  constructor(private _user: UserService, private _router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -29,9 +32,19 @@ export class LoginComponent implements OnInit{
   onSubmit() {
     let user = this.loginUser();
     this._user.loginUser(user).then((data) => {
-        console.log(data);
+        if (data.id !== 'user_not_found') {
+          if (data.password !== 'password_incorrect') {
+            if (data.token && data.token_time > data.current_time) {
+                this._user.getUser(data.token);
+            }
+          } else {
+              this.message = 'Неверный пароль!';
+          }
+        }else {
+          this.message = 'Неверный пользователь!';
+        }
     });
-      this._router.navigate(['/test']);
+
   }
 
   checkLength(control: FormControl) {

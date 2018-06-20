@@ -12,6 +12,7 @@ import { CustomDatePickerComponent } from "../common/custom-date-picker/custom-d
 import {MatButtonModule, MatRadioModule} from "@angular/material";
 import {HeaderModule} from "../header/header.module";
 import {FooterModule} from "../footer/footer.module";
+import { MessageComponent } from './message/message.component';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import {FooterModule} from "../footer/footer.module";
     AuthComponent,
     LoginComponent,
     RegisterComponent,
-
+    MessageComponent,
   ]
 })
 export class AuthModule { }

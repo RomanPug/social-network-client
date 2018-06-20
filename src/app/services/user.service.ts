@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from "../components/auth/user.model";
 import { BaseConfig } from "../configs/base.config";
 import { HttpService } from "./http.service";
+import {HttpHeaders} from "@angular/common/http";
 
 @Injectable()
 export class UserService {
@@ -9,6 +10,7 @@ export class UserService {
 
   registerUrl = BaseConfig.registerUrl;
   loginUrl = BaseConfig.loginUrl;
+  getUserUrl = BaseConfig.getUser;
 
   registerUser(user: User): Promise<any> {
     return this._http.post(this.registerUrl, user)
@@ -21,6 +23,14 @@ export class UserService {
     return this._http.post(this.loginUrl, user)
       .then((response) => {
           return response;
+      });
+  }
+
+  getUser(token): Promise<any> {
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token});
+    return this._http.get(this.getUserUrl, {headers: headers})
+      .then((response) => {
+          console.log(response);
       });
   }
 

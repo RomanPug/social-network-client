@@ -14,9 +14,9 @@ export class HttpService {
       });
   }
 
-    get(url: string): Promise<any> {
-        return this._http.get(url).toPromise()
-            .then((response: Response) => {
+    get(url: string, headers: any): Promise<any> {
+        return this._http.get(url, headers).toPromise()
+            .then((response) => {
                 return response;
         });
     }
