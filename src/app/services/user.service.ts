@@ -20,7 +20,7 @@ export class UserService {
   loginUser(user: User): Promise<any> {
     return this._http.post(this.loginUrl, user)
       .then((response) => {
-        console.log(response);
+          return response;
       });
   }
 

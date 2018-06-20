@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthPasswordLength } from "../auth.config";
 import { UserService } from "../../../services/user.service";
 import { User } from "../user.model";
+import {HttpService} from "../../../services/http.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit{
   minLength = AuthPasswordLength.minLengthPassword;
   maxLength = AuthPasswordLength.maxLengthPassword;
 
-  constructor(private _user: UserService) { }
+  constructor(private _user: UserService, private http: HttpService, private _router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -26,7 +28,10 @@ export class LoginComponent implements OnInit{
 
   onSubmit() {
     let user = this.loginUser();
-    this._user.loginUser(user);
+    this._user.loginUser(user).then((data) => {
+        console.log(data);
+    });
+      this._router.navigate(['/test']);
   }
 
   checkLength(control: FormControl) {

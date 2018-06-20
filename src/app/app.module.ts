@@ -10,10 +10,12 @@ import {AppRoutingModule} from "./app-routing.module";
 import { UserService } from "./services/user.service";
 import { HttpService } from "./services/http.service";
 import { AppCommonModule } from "./components/common/app-common.module";
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TestComponent,
   ],
   imports: [
     HttpClientModule,
@@ -22,7 +24,7 @@ import { AppCommonModule } from "./components/common/app-common.module";
     FooterModule,
     AuthModule,
     AppRoutingModule,
-    AppCommonModule
+    AppCommonModule,
   ],
   providers: [UserService, HttpService, AppCommonModule],
   bootstrap: [AppComponent]

@@ -9,15 +9,15 @@ export class HttpService {
   post(url: string, data: any): Promise<any> {
 
       return this._http.post(url, data).toPromise()
-      .then((response: Response) => {
-          return response;
+            .then((response: Response) => {
+                return response;
       });
   }
 
-    // get(url: string, data: any): Promise<any> {
-    //     return this._http.get(url, data).toPromise()
-    //         .then((response: Response) => {
-    //             return response;
-    //     });
-    // }
+    get(url: string): Promise<any> {
+        return this._http.get(url).toPromise()
+            .then((response: Response) => {
+                return response;
+        });
+    }
 }

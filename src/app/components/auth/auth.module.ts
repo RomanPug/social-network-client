@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppCommonModule } from "../common/app-common.module";
 import { CustomDatePickerComponent } from "../common/custom-date-picker/custom-date-picker.component";
 import {MatButtonModule, MatRadioModule} from "@angular/material";
+import {HeaderModule} from "../header/header.module";
+import {FooterModule} from "../footer/footer.module";
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import {MatButtonModule, MatRadioModule} from "@angular/material";
     MatRadioModule,
     BrowserAnimationsModule,
     CommonModule,
-    AppCommonModule
+    AppCommonModule,
+    HeaderModule,
+    FooterModule,
   ],
   exports: [
     AuthComponent,

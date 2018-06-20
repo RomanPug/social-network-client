@@ -1,8 +1,7 @@
-<div *ngIf="href">
-  <app-auth></app-auth>
-</div>
-<div *ngIf="!href">
-  <app-header></app-header>
-  <router-outlet></router-outlet>
-  <app-footer></app-footer>
+<div class="wrapper">
+    <div class="wrap">
+        <app-header></app-header>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+    </div>
 </div>
