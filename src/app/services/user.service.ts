@@ -27,10 +27,10 @@ export class UserService {
   }
 
   getUser(token): Promise<any> {
-    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token});
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type':'text/html'});
     return this._http.get(this.getUserUrl, {headers: headers})
       .then((response) => {
-          console.log(response);
+        return response;
       });
   }
 

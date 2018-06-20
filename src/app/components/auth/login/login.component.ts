@@ -35,7 +35,9 @@ export class LoginComponent implements OnInit{
         if (data.id !== 'user_not_found') {
           if (data.password !== 'password_incorrect') {
             if (data.token && data.token_time > data.current_time) {
-                this._user.getUser(data.token);
+                this._user.getUser(data.token).then((response) => {
+                  console.log(response);
+                });
             }
           } else {
               this.message = 'Неверный пароль!';
