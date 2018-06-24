@@ -8,7 +8,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppCommonModule } from "../common/app-common.module";
-import { CustomDatePickerComponent } from "../common/custom-date-picker/custom-date-picker.component";
 import {MatButtonModule, MatRadioModule} from "@angular/material";
 import {HeaderModule} from "../header/header.module";
 import {FooterModule} from "../footer/footer.module";
