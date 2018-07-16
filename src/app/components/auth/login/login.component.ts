@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
           if (data.token && data.token_time > data.current_time) {
             this._user.getUser(data.token).then((response) => {
               if (response) {
-                this._router.navigate(['/user']);
+                localStorage.setItem('user', JSON.stringify(response));
+                this._router.navigate(['/id'+ response.id]);
               }
             });
           }

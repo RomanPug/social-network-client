@@ -1,9 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { AuthDaysAndMonth, AuthPasswordLength, AuthYears } from "../auth.config";
+import { AuthPasswordLength } from "../auth.config";
 import { UserService } from "../../../services/user.service";
 import { User } from "../user.model";
-import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-register',
